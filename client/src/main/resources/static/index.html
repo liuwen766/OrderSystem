@@ -4,14 +4,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>普通用户订购主页</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
 </head>
 <body>
 <div class="layui-container" style="width: 700px;height: 600px;margin-top: 0px;padding-top: 60px;">
 
-    <div style="margin-left: 460px; width: 200px;">
-        欢迎回来！<a href="/menu/redirect/order" th:text="${session.user.nickname}"></a><a href="/account/logout">&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-warm layui-btn-radius">退出</button></a>
+    <div style="margin-left: 460px; width: 200px;">                                               <!--通过后台跳转到该index页面，后台就会自动创建session-->
+        欢迎回来！<a href="/menu/redirect/order" style="color: #1E9FFF;text-decoration: underline" th:text="${session.user.nickname}"></a><a href="/account/logout">&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-warm layui-btn-radius">退出</button></a>
     </div>
 
     <table class="layui-hide" id="test" lay-filter="test"></table>
@@ -22,7 +22,6 @@
     <script>
         layui.use('table', function(){
             var table = layui.table;
-
             table.render({
                 elem: '#test'
                 ,url:'/menu/findAll'

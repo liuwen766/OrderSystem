@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 
-@Controller
+@Controller       //视图解析层
 @RequestMapping("/account")
 public class AccountHandler {
 
@@ -27,23 +27,21 @@ public class AccountHandler {
         String result = null;
         String idStr = null;
         long id = 0L;
-        if(object == null){   /*登录失败*/
+        if(object == null){   /*登录失败，返回login.html页面*/  //根据后台传来的数据判断
             result = "login";
         }else{
             switch (type){
-                //  用户登录成功则订购点菜
-                case "user":
+                case "user":                            //用户登录成功则进入普通用户订购页面
                     User user = new User();
                     idStr = hashMap.get("id")+"";
                     id = Long.parseLong(idStr);
                     String nickname = (String)hashMap.get("nickname");
                     user.setId(id);
                     user.setNickname(nickname);
-                    session.setAttribute("user",user);
-                    result = "index";
+                    session.setAttribute("user",user);     //后台创建session，并通过setAttribute进行附值
+                    result = "index";                 //前端index.html是没有session的，但是这里后台解析result时会将创建的session一并返回
                     break;
-                // 管理员登录成功编辑菜单
-                case "admin":
+                case "admin":                         //管理员登录成功进入菜单管理主页
                     Admin admin = new Admin();
                     idStr = hashMap.get("id")+"";
                     id = Long.parseLong(idStr);

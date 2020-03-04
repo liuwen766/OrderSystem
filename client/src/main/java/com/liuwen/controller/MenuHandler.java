@@ -28,7 +28,7 @@ public class MenuHandler {
         return menuFeign.findAll(index,limit);
     }
 
-    //    后台映射转换（thymeleaf需要映射）  index页面的异步刷新
+    //    后台映射转换（thymeleaf需要映射）  index页面的异步刷新       用于测试（index.html的session删除）
     //    http://localhost:8030/menu/redirect/index
     @GetMapping("/redirect/{index}")
     public String redirect(@PathVariable("index") String index){
@@ -44,32 +44,34 @@ public class MenuHandler {
         return "redirect:/menu/redirect/menu_manage";   /* 刷新到菜单管理页面*/
     }
 
+    // menu_add页面中的分类都是从数据库里查出来的，所有要先findTypes再去添加。
+    // 输出菜单按菜品风味种类的添加页面，该页面绑定有save方法
     @GetMapping("/findTypes")
     public ModelAndView findTypes(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("menu_add");
-        modelAndView.addObject("list",menuFeign.findTypes());
+        modelAndView.setViewName("menu_add");             /*绑定页面*/
+        modelAndView.addObject("list",menuFeign.findTypes());   /*在绑定页面上添加数据*/
         return modelAndView;  /*返回menu_add页面*/
     }
 
     @PostMapping("/save")
     public String save(Menu menu){
-        menuFeign.save(menu);
-        return "redirect:/menu/redirect/index";   /* 刷新页面*/
+        menuFeign.save(menu);                //这里拿到的是json数据
+        return "redirect:/menu/redirect/menu_manage";   /* 提交菜单后跳转到menu_manage页面 */
     }
 
     @GetMapping("/findById/{id}")
     public ModelAndView findById(@PathVariable("id") long id){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("menu_update");
-        modelAndView.addObject("menu",menuFeign.findById(id));
-        modelAndView.addObject("list",menuFeign.findTypes());
+        modelAndView.addObject("menu",menuFeign.findById(id));    //菜单
+        modelAndView.addObject("list",menuFeign.findTypes());     //分类
         return modelAndView;
     }
 
     @PostMapping("/update")
     public String update(Menu menu){
-        menuFeign.update(menu);
+        menuFeign.update(menu);                         //这里拿到的是json数据
         return "redirect:/menu/redirect/menu_manage";   /* 刷新页面*/
     }
 

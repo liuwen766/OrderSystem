@@ -3,16 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>服务消费者</title>
+    <title>menu管理</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
     <!--<link rel="stylesheet" href="../layui/css/layui.css">-->
 </head>
 <body>
 <div class="layui-container" style="width: 700px;height: 600px;margin-top: 0px;padding-top: 60px;">
 
-    <!--<div style="margin-left: 460px; width: 200px;">-->
-        <!--欢迎回来！&lt;!&ndash;<a href="/account/redirect/order" th:text="${session.user.nickname}"></a><a href="/account/logout">&ndash;&gt;&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-warm layui-btn-radius">退出</button></a>-->
-    <!--</div>-->
+    <div style="margin-left: 460px; width: 200px;">
+        <!--欢迎管理员：<a href="/menu/redirect/menu_manage" style="color: #1E9FFF;text-decoration: underline" th:text="${session.admin.username}"></a>-->
+    </div>
 
     <table class="layui-hide" id="test" lay-filter="test"></table>
     <script type="text/html" id="barDemo">

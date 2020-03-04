@@ -17,7 +17,7 @@ public class UserHandler {
     @Resource
     private UserFeign userFeign;
 
-//    @GetMapping("/findAll/{page}/{limit}")
+//    @GetMapping("/findAll/{page}/{limit}")        //用于测试
 //    @ResponseBody
 //    public List<User> findAll(@PathVariable("page") int page, @PathVariable("limit") int limit) {
 //        int index = (page-1)*limit;

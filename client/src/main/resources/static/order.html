@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>我的订单</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
 </head>
 <body>
 <div class="layui-container" style="width: 960px;height: 600px;margin-top: 0px;padding-top: 60px;">
 
     <div style="margin-left: 460px; width: 300px;">
-        <a href="/menu/redirect/index">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;欢迎回来！<a href="/account/redirect/order" th:text="${session.user.nickname}"></a><a href="/account/logout">&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-warm layui-btn-radius">退出</button></a>
+        <a href="/menu/redirect/index" style="color: #1E9FFF;text-decoration: underline">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;欢迎回来！<a href="/menu/redirect/order" style="color: #1E9FFF;text-decoration: underline" th:text="${session.user.nickname}"></a><a href="/account/logout">&nbsp;&nbsp;&nbsp;<button class="layui-btn layui-btn-warm layui-btn-radius">退出</button></a>
     </div>
 
     <table class="layui-hide" id="test" lay-filter="test"></table>

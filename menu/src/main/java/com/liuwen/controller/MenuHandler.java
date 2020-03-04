@@ -52,7 +52,7 @@ public class MenuHandler {
     }
 
     @PostMapping("/save")
-    //    注解@RequestBody将json格式的数据转换为menu对象
+    //    注解@RequestBody将json格式的数据转换为menu对象，要不然就只能拿到一个空的对象。
     public void save(@RequestBody Menu menu){
         menuRepository.save(menu);
     }

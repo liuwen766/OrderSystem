@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>管理员主页</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
     <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
     <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
@@ -72,20 +72,22 @@
     </div>
     <!-- 左侧菜单结束 -->
 
-    <!-- 主体开始 -->
-    <div class="layui-body">
-        <!--页面跳转-->
-        <iframe src="/menu/redirect/menu_manage" style="width: 100%;height: 100%;border: 0px"></iframe>
-    </div>
-    <!-- 主体结束 -->
+        <!-- 主体开始 -->
+        <div class="layui-body">
+            <!--页面跳转-->
+            <iframe src="/menu/redirect/menu_manage" style="width: 100%;height: 100%;border: 0px"></iframe>
+        </div>
+        <!-- 主体结束 -->
 
-    <!-- 底部开始 -->
-    <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        @刘稳
-    </div>
-    <!-- 底部结束 -->
+        <!-- 底部开始 -->
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            Liuwen @Version 1        联系：780442619@qq.com
+        </div>
+        <!-- 底部结束 -->
+    </body>
 </div>
+
 <script>
     //二级菜单联动
     layui.use('element', function(){
@@ -93,5 +95,5 @@
 
     });
 </script>
-</body>
+
 </html>
